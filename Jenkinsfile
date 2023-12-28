@@ -16,7 +16,7 @@ scripts/build.sh'''
 
     stage('Build docker image') {
       steps {
-        sh 'docker build -t jenkins_CICD_test_image .'
+        sh 'docker build -t jenkins_cicd_test_image .'
       }
     }
 
