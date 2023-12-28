@@ -8,5 +8,11 @@ scripts/build.sh'''
       }
     }
 
+    stage('Test') {
+      steps {
+        sh 'scripts/test.sh'
+      }
+    }
+
   }
 }
