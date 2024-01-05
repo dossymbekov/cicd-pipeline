@@ -23,7 +23,7 @@ scripts/build.sh'''
     stage('push image to dockerhub') {
       steps {
         sh '''echo $DOCKERHUB_CREDENTIALS | docker login --username almasdoss --password-stdin
-docker push almasdoss/jenkins_cicd_test_image:latest\'
+docker push almasdoss/jenkins_cicd_test_image:latest
 '''
       }
     }
