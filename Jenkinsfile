@@ -1,10 +1,5 @@
 pipeline {
   agent any
-  
-  environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
-  }
-  
   stages {
     stage('Build ') {
       steps {
@@ -25,5 +20,16 @@ scripts/build.sh'''
       }
     }
 
+    stage('push image to dockerhub') {
+      steps {
+        sh '''echo $DOCKERHUB_CREDENTIALS | docker login --username almasdoss --password-stdin
+docker push almasdoss/jenkins_cicd_test_image:latest\'
+'''
+      }
+    }
+
+  }
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
   }
 }
