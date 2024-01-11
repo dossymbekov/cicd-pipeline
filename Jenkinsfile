@@ -16,7 +16,7 @@ scripts/build.sh'''
 
     stage('Build docker image') {
       steps {
-        sh 'docker build -t almasdoss/jenkins_cicd_test_image:latest .'
+        sh 'docker build -t jenkins_cicd_test_image .'
       }
     }
 
@@ -24,7 +24,7 @@ scripts/build.sh'''
       steps {
          script {
           docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
-                sh 'docker push almasdoss/jenkins_cicd_test_image:latest'
+                sh 'docker push jenkins_cicd_test_image'
           }
         }
       }
