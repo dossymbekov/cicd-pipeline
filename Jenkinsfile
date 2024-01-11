@@ -22,9 +22,9 @@ scripts/build.sh'''
 
     stage('Push image to dockerhub') {
       steps {
-        sh '''echo $DOCKERHUB_CREDENTIALS | docker login --username almasdoss --password-stdin
-docker push almasdoss/jenkins_cicd_test_image:latest
-'''
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
+              sh 'docker push almasdoss/jenkins_cicd_test_image:latest'
+          }
       }
     }
 
