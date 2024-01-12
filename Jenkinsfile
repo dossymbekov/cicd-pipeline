@@ -30,4 +30,7 @@ scripts/build.sh'''
     }
 
   }
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
+  }
 }
